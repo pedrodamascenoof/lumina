@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 6%;
+    --foreground: 40 20% 95%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 43 74% 66%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 270 30% 70%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 270 50% 50%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 43 74% 66%;
+
+    --radius: 0.75rem;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(270 50% 20% / 0.4), hsl(43 74% 30% / 0.3));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 10% / 0.6), hsl(270 30% 15% / 0.4));
+    --shadow-gold: 0 8px 32px hsl(43 74% 66% / 0.15);
+    --shadow-purple: 0 8px 32px hsl(270 50% 50% / 0.15);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 40 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-card/40 border border-border/50;
+  }
+  
+  .btn-hero {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .btn-hero:hover {
+    box-shadow: var(--shadow-gold), var(--shadow-purple);
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
